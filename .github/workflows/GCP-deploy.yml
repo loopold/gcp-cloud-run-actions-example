@@ -22,7 +22,7 @@ jobs:
         - name: Login
           uses: "google-github-actions/auth@v1"
           with:
-            credentials_json: "${{ env.GCP_CREDENTIALS }}"
+            credentials_json: "${{ secrets.GCP_CREDENTIALS }}"
             service_account: "zamiast@zamiast-project-example.iam.gserviceaccount.com"
 
 
