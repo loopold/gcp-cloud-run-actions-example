@@ -1,5 +1,3 @@
-module github/leozz37/cloud-run-actions-example
+module github.com/loopold/gcp-cloud-run-actions-example
 
-go 1.15
-
-require github.com/gorilla/mux v1.8.0
+go 1.19
