@@ -32,17 +32,17 @@ jobs:
 
 
 
-        # - name: Configure Docker
-        #   run: gcloud auth configure-docker --quiet
+        - name: Configure Docker
+          run: gcloud auth configure-docker --quiet
             
-        # - name: Build Docker image
-        #   run: docker build . --tag $IMAGE_NAME 
+        - name: Build Docker image
+          run: docker build . --tag $IMAGE_NAME 
 
-        # - name: Test Docker image
-        #   run: docker run $IMAGE_NAME sh -c "go test -v" 
+        - name: Test Docker image
+          run: docker run $IMAGE_NAME sh -c "go test -v" 
 
-        # - name: Push Docker image
-        #   run: docker push $IMAGE_NAME
+        - name: Push Docker image
+          run: docker push $IMAGE_NAME
 
-        # - name: Deploy Docker image
-        #   run: gcloud run deploy ${{ secrets.GCP_PROJECT_ID }} --image $IMAGE_NAME --region us-central1 --platform managed --allow-unauthenticated
+        - name: Deploy Docker image
+          run: gcloud run deploy ${{ secrets.GCP_PROJECT_ID }} --image $IMAGE_NAME --region us-central1 --platform managed --allow-unauthenticated
