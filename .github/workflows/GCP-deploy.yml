@@ -23,16 +23,14 @@ jobs:
             service_account_email: ${{ secrets.GCP_EMAIL }}
             service_account_key: ${{ secrets.GCP_CREDENTIALS }}
             
-        - name: Checkout repository
-          uses: actions/checkout@v2
-          with:
-            project_id: ${{ secrets.GCP_PROJECT_ID }}
-            service_account_email: ${{ secrets.GCP_EMAIL }}
-            service_account_key: ${{ secrets.GCP_CREDENTIALS }}
-
         - name: Configure Docker
           run: gcloud auth configure-docker --quiet
             
+        - name: Checkout repository
+          uses: actions/checkout@v2
+          with:
+            repositories: ${{ github.repository }}
+
         - name: Build Docker image
           run: docker build . --tag $IMAGE_NAME 
 
